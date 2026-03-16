@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="">
-  <meta name="keywords" content="">
+        content="Pickalo: Leveraging 6D Pose Estimation for Low-Cost Industrial Bin Picking">
+  <meta name="keywords" content="Bin picking, foundation models, depth enhancement, 6D pose estimation, robotics">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Academic Paper</title>
+  <title>Pickalo: Leveraging 6D Pose Estimation for Low-Cost Industrial Bin Picking</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -43,36 +43,20 @@
           <i class="fas fa-home"></i>
       </span>
       </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="">
-            <!-- Link 1 -->
-          </a>
-        </div>
-      </div>
     </div>
-
   </div>
 </nav>
 
 
+<!-- Title & Authors -->
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Paper Title</h1>
+          <h1 class="title is-1 publication-title">Pickalo: Leveraging 6D Pose Estimation for Low-Cost Industrial Bin Picking</h1>
           <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="">Author 1</a><sup>1</sup>,</span>
-          </div>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Affiliation</span>
+            <span class="author-block">The Camozzi JointLab group</span>
           </div>
 
           <div class="column has-text-centered">
@@ -114,19 +98,9 @@
                       <i class="fab fa-github"></i>
                   </span>
                   <span>Code</span>
-                  </a>
+                </a>
               </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a>
             </div>
-
           </div>
         </div>
       </div>
@@ -134,236 +108,199 @@
   </div>
 </section>
 
+<!-- Teaser: Snippet Video -->
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
+        <source src="./static/videos/snippet.mp4"
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        <!-- Teaser description -->
+        Pickalo achieves up to ~600 mean picks per hour with 96&ndash;99% grasp success on densely filled euroboxes, using only a consumer-grade RGB-D camera and a UR5e with a parallel-jaw gripper.
       </h2>
     </div>
   </div>
 </section>
 
 
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
+<!-- Abstract -->
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            <!-- Abstract text -->
+            Bin picking in real industrial environments remains challenging due to severe clutter, occlusions, and the high cost of traditional 3D sensing setups. We present <strong>Pickalo</strong>, a modular 6D pose&ndash;based bin-picking pipeline built entirely on low-cost hardware. A wrist-mounted RGB-D camera actively explores the scene from multiple viewpoints, while raw stereo streams are processed with BridgeDepth to obtain refined depth maps suitable for accurate collision reasoning. Object instances are segmented with a Mask R-CNN model trained purely on photorealistic synthetic data and localized using the zero-shot SAM-6D pose estimator. A pose buffer module fuses multi-view observations over time, handling object symmetries and significantly reducing pose noise. Offline, we generate and curate large sets of antipodal grasp candidates per object; online, a utility-based ranking and fast collision checking are queried for the grasp planning. Deployed on a UR5e with a parallel-jaw gripper and an Intel RealSense D435i, Pickalo achieves up to ~600 mean picks per hour with 96&ndash;99% grasp success and robust performance over 30-minute runs on densely filled euroboxes. Ablation studies demonstrate the benefits of enhanced depth estimation and the pose buffer for long-term stability and throughput in realistic industrial conditions.
           </p>
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src=""
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-    <!--/ Paper video. -->
   </div>
 </section>
 
 
+<!-- Pipeline Overview -->
 <section class="section">
   <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Pipeline Overview</h2>
+        <div class="content has-text-justified">
           <p>
-            <!-- Visual Effects description -->
+            Pickalo follows a modular architecture integrating state-of-the-art perception and planning components. A stereo-pair image is acquired and processed by a depth estimation block (BridgeDepth) to obtain enhanced depth. The resulting depth is aligned to the RGB frame and provided to the SAM-6D pose estimator together with the object CAD model. A Pose Buffer fuses multi-view pose estimates over time, handling symmetries and filtering unreliable detections. The scene state&mdash;composed of target objects, static objects (bin, table), and occupied voxels&mdash;is then used by the grasp planner, which ranks pre-computed antipodal grasp candidates and performs fast collision checking to find a feasible extraction trajectory.
           </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
         </div>
-      </div>
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
-      <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              <!-- Matting description -->
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-
-        </div>
+        <img src="./static/images/pipeline.png" alt="Pickalo pipeline overview" style="width: 100%;">
       </div>
     </div>
-    <!--/ Matting. -->
+  </div>
+</section>
 
-    <!-- Animation. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
 
-        <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
+<!-- Sped-up Video: Throughput Demo -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Reliability &amp; Throughput</h2>
         <div class="content has-text-justified">
           <p>
-            <!-- Interpolation description -->
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
-        </div>
-        <br/>
-        <!--/ Interpolating. -->
-
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">Re-rendering the input video</h3>
-        <div class="content has-text-justified">
-          <p>
-            <!-- Re-rendering description -->
+            Below is a sped-up video of Pickalo continuously emptying a densely filled eurobox. The system maintains high throughput (~600 picks/hour) and over 96% grasp success rate across 30-minute runs, demonstrating its long-term reliability in realistic industrial conditions.
           </p>
         </div>
         <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
+          <video id="timelapse-video" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/timelapse.mp4"
                     type="video/mp4">
           </video>
         </div>
-        <!--/ Re-rendering. -->
-
       </div>
     </div>
-    <!--/ Animation. -->
-
-
-    <!-- Concurrent Work. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            <!-- Related links -->
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Concurrent Work. -->
-
   </div>
 </section>
 
 
+<!-- Object Categories: Video Grid -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Performance Across Object Categories</h2>
+        <div class="content has-text-justified">
+          <p>
+            Pickalo was validated on three classes of real industrial metallic components&mdash;featuring highly reflective surfaces and complex geometries&mdash;picked from densely filled standard euroboxes. The table below summarizes the grasp success rate over 1,000 pipeline iterations per category.
+          </p>
+        </div>
+
+        <!-- Results Table -->
+        <table class="table is-bordered is-striped is-hoverable is-fullwidth" style="margin-bottom: 2rem;">
+          <thead>
+            <tr>
+              <th>Geometry</th>
+              <th>Success Rate (%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Square</td>
+              <td>98.8</td>
+            </tr>
+            <tr>
+              <td>Cylindrical</td>
+              <td>97.7</td>
+            </tr>
+            <tr>
+              <td>Complex</td>
+              <td>96.1</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Videos per object category -->
+        <div class="columns is-centered" style="margin-top: 1.5rem;">
+          <div class="column is-half has-text-centered">
+            <video controls muted loop playsinline width="100%">
+              <source src="./static/videos/cuboid.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-half has-text-centered">
+            <video controls muted loop playsinline width="100%">
+              <source src="./static/videos/frl.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Key Results / Ablation Highlights -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Key Results</h2>
+
+        <div class="columns">
+          <!-- Depth Ablation -->
+          <div class="column">
+            <h3 class="title is-4">Depth Enhancement</h3>
+            <div class="content has-text-justified">
+              <p>
+                Using BridgeDepth instead of raw RealSense depth maintains <strong>96.3% success rate</strong> over 30 minutes, whereas the RealSense baseline drops to <strong>88.5%</strong>. The raw depth contains holes and artifacts from metallic reflections, leading to missed detections and erroneous collision checks over time.
+              </p>
+            </div>
+          </div>
+          <!-- Pose Buffer Ablation -->
+          <div class="column">
+            <h3 class="title is-4">Pose Buffer</h3>
+            <div class="content has-text-justified">
+              <p>
+                The multi-view Pose Buffer increases MPPH by <strong>10&ndash;12%</strong> and boosts success rate by <strong>11&ndash;13 percentage points</strong>. By requiring at least two consistent observations before declaring an object graspable, it filters out unreliable pose estimates and dramatically reduces grasp failures.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Conclusions -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Conclusions</h2>
+        <div class="content has-text-justified">
+          <p>
+            Pickalo demonstrates that industrially relevant bin-picking performance does not require specialized or expensive sensing hardware. By carefully integrating modern 6D pose estimation, synthetic-data&ndash;driven instance segmentation, enhanced depth via deep stereo matching, and a temporal pose buffer, the system achieves up to ~600 mean picks per hour with 96&ndash;99% grasp success rates over continuous 30-minute runs on densely filled euroboxes with challenging metallic objects.
+          </p>
+          <p>
+            The modular architecture means each component&mdash;perception, pose fusion, grasp selection, and motion planning&mdash;can be replaced or upgraded independently as new algorithms become available, without redesigning the entire pipeline.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- BibTeX -->
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{,
-  author    = {},
-  title     = {},
+    <pre><code>@article{pickalo2025,
+  author    = {The Camozzi JointLab group},
+  title     = {Pickalo: Leveraging 6D Pose Estimation for Low-Cost Industrial Bin Picking},
   journal   = {},
-  year      = {},
+  year      = {2025},
 }</code></pre>
   </div>
 </section>
@@ -372,8 +309,7 @@
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
-      <a class="icon-link"
-         href="">
+      <a class="icon-link" href="">
         <i class="fas fa-file-pdf"></i>
       </a>
       <a class="icon-link" href="" class="external-link" disabled>
@@ -389,9 +325,8 @@
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
           <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
+            This website template is borrowed from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. We thank the authors for open-sourcing it.
           </p>
         </div>
       </div>
