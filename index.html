@@ -74,7 +74,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href=""
+                <a href="https://www.mdpi.com/2218-6581/15/10/197" target="_blank" rel="noopener noreferrer"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -83,7 +83,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href=""
+                <a href="https://arxiv.org/abs/2604.04690" target="_blank" rel="noopener noreferrer"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -229,6 +229,30 @@
 </section>
 
 
+<!-- Multi-Class Grasping Demo -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Multi-Class Grasping</h2>
+        <div class="content has-text-justified">
+          <p>
+            Pickalo can grasp different classes of objects within the same cluttered scene.
+            The video below shows the system handling mixed object geometries at the same time,
+            demonstrating that the pipeline is not limited to single-category bins.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <video id="multi-class-video" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/multi.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- Key Results / Ablation Highlights -->
 <section class="section">
   <div class="container is-max-desktop">
@@ -287,12 +311,21 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{pickalo2025,
-  author    = {Alessandro Tarsi and Matteo Mastrogiuseppe and Saverio Taliani and Simone Cortinovis and Ugo Pattacini},
-  title     = {Pickalo: Leveraging 6D Pose Estimation for Low-Cost Industrial Bin Picking},
-  journal   = {},
-  year      = {2025},
-}</code></pre>
+    <pre><code> 
+@Article{robotics15100197,
+AUTHOR = {Tarsi, Alessandro and Mastrogiuseppe, Matteo and Taliani, Saverio and Cortinovis, Simone and Pattacini, Ugo},
+TITLE = {Pickalo: Leveraging 6D Pose Estimation and Deep Stereo Matching for Industrial Bin Picking},
+JOURNAL = {Robotics},
+VOLUME = {15},
+YEAR = {2026},
+NUMBER = {10},
+ARTICLE-NUMBER = {197},
+URL = {https://www.mdpi.com/2218-6581/15/10/197},
+ISSN = {2218-6581},
+ABSTRACT = {Bin picking in industrial environments remains challenging due to the high cost of industrial 3D sensors and the typical requirement of structured-light projectors. We present Pickalo, a modular pipeline designed to reduce the setup complexity of industrial bin-picking by leveraging 6D pose estimation and deep stereo matching. To maximize scene coverage, a wrist-mounted RGB-D camera actively explores the bin from multiple viewpoints. At each viewpoint, raw stereo streams are processed using BridgeDepth to obtain refined depth maps suitable for accurate collision reasoning. Object instances are segmented with a Mask-RCNN model trained on photorealistic synthetic data and localized using the zero-shot SAM-6D pose estimator. A pose buffer module fuses the observations over time, handling object symmetries and reducing pose noise. Offline, we generate and curate large sets of antipodal grasp candidates per object, while online, a utility-based ranking and fast collision checking are queried for the grasp planning. Deployed on a UR5e with a parallel-jaw gripper and an Intel RealSense D435i, Pickalo achieves up to 600 mean picks per hour with 96–99% grasp success over 30 min runs on densely filled euroboxes. Ablation studies demonstrate the benefits of enhanced depth estimation and of the pose buffer for long-term stability and throughput in realistic industrial conditions.},
+DOI = {10.3390/robotics15100197}
+}
+</code></pre>
   </div>
 </section>
 
@@ -300,7 +333,7 @@
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
-      <a class="icon-link" href="">
+      <a class="icon-link" href="https://www.mdpi.com/2218-6581/15/10/197" target="_blank" rel="noopener noreferrer">
         <i class="fas fa-file-pdf"></i>
       </a>
       <a class="icon-link" href="" class="external-link" disabled>
